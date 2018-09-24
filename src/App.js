@@ -2,71 +2,14 @@ import React from 'react';
 
 class App extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {
-      count: 0,
-    };
-	
-  }
-
-  updateCount() {
-    this.setState((prevState, props) => {
-      return { count: prevState.count + 1 }
-    });
-  }
 
   render() {
-    return (<div><button
-              onClick={() => this.updateCount()}
-            >
-              Clicked {this.state.count} times
-            </button>
-			
-            <Contents myNumber = {this.state.count}></Contents>
-         </div>
-			);
+    return [
+  <div key={1} id="maps" style={{position: ''}}></div>,
+  <div key={2} id="btnAction" style={{display: 'none'}}></div>
+      ];
 			
   }
-}
-
-class Contents extends React.Component {
-
-   componentWillMount() {
-      console.log('Component WILL MOUNT!')
-   }
-
-   componentDidMount() {
-      console.log('Component DID MOUNT!')
-   }
-
-   componentWillReceiveProps(newProps) {    
-      console.log(newProps)
-   }
-
-   shouldComponentUpdate(newProps, newState) {
-      return true;
-   }
-
-   componentWillUpdate(nextProps, nextState) {
-      console.log(nextProps);
-   }
-
-   componentDidUpdate(prevProps, prevState) {
-      console.log(prevProps)
-   }
-
-   componentWillUnmount() {
-      console.log('Component WILL UNMOUNT!')
-   }
-	
-   render() {
-      return (
-         <div>
-            <h3>{this.props.myNumber}</h3>
-         </div>
-      );
-   }
 }
 
 export default App;
